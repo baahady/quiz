@@ -20,6 +20,6 @@ class Question extends Model
 
     public function responses()
     {
-    	retuen $this->hasMany(TryResponse::class);
+    	return $this->hasMany(TryResponse::class);
     }
 }

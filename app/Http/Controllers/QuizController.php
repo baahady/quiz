@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Quiz;
 
 class QuizController extends Controller
 {
@@ -21,5 +22,12 @@ class QuizController extends Controller
     	$quiz = auth()->user()->quizzes()->create($data);
 
     	return redirect('/quizzes/'.$quiz->id);
-    }
+	}
+	
+	public function show(Quiz $quiz)
+	{
+		$quiz->load('questions.answers.responses');
+		
+		return view('quiz.show',compact($quiz));
+	}
 }
