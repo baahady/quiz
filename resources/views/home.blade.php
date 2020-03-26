@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="quizzes/create" class="btn btn-success">Create new quiz</a>
                 </div>
             </div>
         </div>
