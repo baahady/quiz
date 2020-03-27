@@ -15,6 +15,6 @@ class Answer extends Model
 
     public function reponses()
     {
-    	return $this->hasMany(TryResponse::class);
+    	return $this->hasMany(TakepartResponse::class);
     }
 }

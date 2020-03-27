@@ -13,7 +13,7 @@ class CreateTriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tries', function (Blueprint $table) {
+        Schema::create('takeparts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('quiz_id');
             $table->string('name');

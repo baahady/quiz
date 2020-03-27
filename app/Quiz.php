@@ -18,8 +18,8 @@ class Quiz extends Model
     	return $this->hasMany(Question::class);
     }
 
-    // public function tries()
-    // {
-    // 	return $this->hasMany(Try::class);
-    // }
+    public function Takeparts()
+    {
+    	return $this->hasMany(Takepart::class);
+    }
 }

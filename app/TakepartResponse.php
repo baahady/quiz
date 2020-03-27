@@ -8,8 +8,8 @@ class TryResponse extends Model
 {
     protected $guarded = [];
 
-    public function try()
+    public function Takepart()
     {
-    	return $this->belongsTo(Try::class);
+    	return $this->belongsTo(Takepart::class);
     }
 }

@@ -20,6 +20,6 @@ class Question extends Model
 
     public function responses()
     {
-    	return $this->hasMany(TryResponse::class);
+    	return $this->hasMany(TakepartResponse::class);
     }
 }

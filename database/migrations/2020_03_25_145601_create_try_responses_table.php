@@ -13,9 +13,9 @@ class CreateTryResponsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('try_responses', function (Blueprint $table) {
+        Schema::create('takepart_responses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('try_id');
+            $table->unsignedBigInteger('takepart_id');
             $table->unsignedBigInteger('question_id');
             $table->unsignedBigInteger('answer_id');
             $table->timestamps();

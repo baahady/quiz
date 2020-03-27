@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Try extends Model
+class Takepart extends Model
 {
     protected $guarded = [];
 
@@ -15,6 +15,6 @@ class Try extends Model
 
     public function responses()
     {
-    	return $this->hasMany(TryResponse::class);
+    	return $this->hasMany(TakepartResponse::class);
     }
 }

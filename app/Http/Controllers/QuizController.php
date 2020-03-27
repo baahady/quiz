@@ -28,6 +28,6 @@ class QuizController extends Controller
 	{
 		$quiz->load('questions.answers.responses');
 		
-		return view('quiz.show',compact($quiz));
+		return view('quiz.show',compact('quiz'));
 	}
 }
