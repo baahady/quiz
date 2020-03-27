@@ -8,6 +8,11 @@ class Quiz extends Model
 {
     protected $guarded = [];
 
+    public function path()
+    {
+        return url('/quizzes/'.$this->id);
+    }
+
     public function user()
     {
     	return $this->belongsTo(User::class);

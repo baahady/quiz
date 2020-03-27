@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Quiz;
+use \App\Question;
 
 class QuestionController extends Controller
 {
@@ -22,5 +23,13 @@ class QuestionController extends Controller
         $question = $quiz->questions()->create($data['question']);
         $question->answers()->createMany($data['answers']);
         return redirect('quizzes/'.$quiz->id);
+    }
+
+    public function destroy(Quiz $quiz, Question $question)
+    {
+        $question->answers()->delete();
+        $question->delete();
+
+        return redirect($quiz->path());
     }
 }

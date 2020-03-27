@@ -32,7 +32,6 @@ class QuizController extends Controller
 	public function show(Quiz $quiz)
 	{
 		$quiz->load('questions.answers.responses');
-		
 		return view('quiz.show',compact('quiz'));
 	}
 }
