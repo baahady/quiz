@@ -13,7 +13,7 @@ class Answer extends Model
     	return $this->belongsTo(Question::class);
     }
 
-    public function reponses()
+    public function responses()
     {
     	return $this->hasMany(TakepartResponse::class);
     }

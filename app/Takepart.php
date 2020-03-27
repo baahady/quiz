@@ -10,7 +10,7 @@ class Takepart extends Model
 
     public function quiz()
     {
-    	return $this->belongsTo(Quiz::class)
+    	return $this->belongsTo(Quiz::class);
     }
 
     public function responses()

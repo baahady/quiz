@@ -12,10 +12,15 @@ class QuestionController extends Controller
     	return view('question.create',compact('quiz'));
     }
 
-    public function store()
+    public function store(Quiz $quiz)
     {
     	$data = request()->validate([
-    		'question.question'=>'required'
-    	]);
+            'question.question'=>'required',
+            'answers.*.answer'=>'required'
+        ]);
+        
+        $question = $quiz->questions()->create($data['question']);
+        $question->answers()->createMany($data['answers']);
+        return redirect('quizzes/'.$quiz->id);
     }
 }

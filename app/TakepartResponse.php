@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TryResponse extends Model
+class TakepartResponse extends Model
 {
     protected $guarded = [];
 
