@@ -27,3 +27,5 @@ Route::get('/quizzes/{quiz}','QuizController@show');
 Route::get('/quizzes/{quiz}/questions/create','QuestionController@create');
 Route::post('/quizzes/{quiz}/questions','QuestionController@store');
 Route::delete('/quizzes/{quiz}/questions/{question}','QuestionController@destroy');
+
+Route::get('/takeparts/{quiz}-{slug}','TakepartController@show');

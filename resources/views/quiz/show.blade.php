@@ -9,6 +9,7 @@
 
                 <div class="card-body">
                     <a href="/quizzes/{{$quiz->id}}/questions/create" class="btn btn-success">Add new question</a>
+                    <a href="/takeparts/{{$quiz->id}}-{{Str::slug($quiz->title)}}" class="btn btn-success">Take part in this Quiz</a>
                 </div>
             </div>
             @foreach($quiz->questions as $question)
