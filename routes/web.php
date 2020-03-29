@@ -29,3 +29,4 @@ Route::post('/quizzes/{quiz}/questions','QuestionController@store');
 Route::delete('/quizzes/{quiz}/questions/{question}','QuestionController@destroy');
 
 Route::get('/takeparts/{quiz}-{slug}','TakepartController@show');
+Route::post('/takeparts/{quiz}-{slug}','TakepartController@store');
