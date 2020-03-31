@@ -19,7 +19,7 @@
         						<label for="{{$answer->id}}">
         						<li class="list-group-item">
         							<input type="radio" name="responses[{{$key}}][answer_id]" value="{{$answer->id}}" class="mr-2" {{(old('responses.'.$key.'.answer_id')==$answer->id) ? 'checked' : ''}} id="{{$answer->id}}">
-        							{{$answer->id}}
+        							{{$answer->answer}}
         							<input type="hidden" name="responses[{{$key}}][question_id]" value="{{$question->id}}">
         						</li>
         						</label>

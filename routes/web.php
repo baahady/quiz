@@ -30,3 +30,9 @@ Route::delete('/quizzes/{quiz}/questions/{question}','QuestionController@destroy
 
 Route::get('/takeparts/{quiz}-{slug}','TakepartController@show');
 Route::post('/takeparts/{quiz}-{slug}','TakepartController@store');
+
+//Route::resource('/admin/users','Admin\UserController',['except'=>['show','create','store']]);
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    Route::resource('/users','UserController',['except'=>['show','create','store']]);
+});
