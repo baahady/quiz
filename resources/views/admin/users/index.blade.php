@@ -8,10 +8,32 @@
                 <div class="card-header">Users</div>
 
                 <div class="card-body">
-                    @foreach($users as $user)
-                        {{$user->name}} - {{$user->email}}
-                    @endforeach
-                </div>
+
+                        <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">نام</th>
+                            <th scope="col">ایمیل</th>
+                            <th scope="col">عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($users as $user)
+                            <tr>
+                            <th scope="row">{{$user->id}}</th>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>
+                            <a href="{{route('admin.users.edit',$user->id)}}"><button type="button" class="btn btn-warning">ویرایش</button></a>
+                            <a href="{{route('admin.users.destroy',$user->id)}}"><button type="button" class="btn btn-danger">حذف</button></a>                            
+                            </td>
+                            </tr>                        
+                        @endforeach
+
+                        </tbody>
+                        </table>                
+                    </div>
             </div>
         </div>
     </div>
