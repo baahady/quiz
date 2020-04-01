@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Quiz::class);
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }

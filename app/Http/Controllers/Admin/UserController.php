@@ -8,14 +8,19 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return "yess";
+    public function index(User $user)
+    {   
+        $users = $user->all();
+        return view('admin.users.index')->with('users',$users);
     }
 
     /**
