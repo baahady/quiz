@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTriesTable extends Migration
+class CreateTakepartResponsesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateTriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('takeparts', function (Blueprint $table) {
+        Schema::create('takepart_responses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('quiz_id');
-            $table->string('name');
-            $table->string('email');
+            $table->unsignedBigInteger('takepart_id');
+            $table->unsignedBigInteger('question_id');
+            $table->unsignedBigInteger('answer_id');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateTriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tries');
+        Schema::dropIfExists('takepart_responses');
     }
 }
