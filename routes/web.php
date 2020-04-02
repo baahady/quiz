@@ -33,6 +33,6 @@ Route::post('/takeparts/{quiz}-{slug}','TakepartController@store');
 
 //Route::resource('/admin/users','Admin\UserController',['except'=>['show','create','store']]);
 
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users','UserController',['except'=>['show','create','store']]);
 });
