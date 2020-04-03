@@ -12,7 +12,8 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        Role::truncate();
+        //Role::truncate(); did not work because of foreign key
+        DB::table('roles')->delete();        
         Role::create(['name'=>'admin']);
         Role::create(['name'=>'author']);
         Role::create(['name'=>'user']);

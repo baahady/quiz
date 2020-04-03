@@ -15,8 +15,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-        DB::table('role_user')->truncate();
+        // User::truncate(); did not work because of foreign key
+        // DB::table('role_user')->truncate();
+        DB::table('users')->delete();        
+        DB::table('role_user')->delete();        
         $adminRole = Role::where('name','admin')->first();
         $authorRole = Role::where('name','author')->first();
         $userRole = Role::where('name','user')->first();
