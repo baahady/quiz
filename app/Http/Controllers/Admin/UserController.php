@@ -57,7 +57,12 @@ class UserController extends Controller
 
         $user->email=$request->email;
         $user->name=$request->name;
-        $user->save();
+        if($user->save()){
+            $request->session()->flash('success','User has been updated');
+        }else{
+            $this->session()->flash('warning','An error has been occurred');
+        }
+        
 
         return redirect()->route('admin.users.index');
     }

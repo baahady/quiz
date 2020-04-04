@@ -8,7 +8,7 @@
                 <div class="card-header">Users</div>
 
                 <div class="card-body">
-
+                        @include('partials.alert')
                         <table class="table table-striped">
                         <thead>
                             <tr>
