@@ -63,6 +63,9 @@
                                     @can('manage-users')
                                     <a href="{{route('admin.users.index')}}" class="dropdown-item">User Management</a>
                                     @endcan
+                                    @can('manage-quiz')
+                                    <a href="{{route('home')}}" class="dropdown-item">Quiz Management</a>
+                                    @endcan
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
