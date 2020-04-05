@@ -9,10 +9,10 @@
 
                 <div class="card-body">
                     <a href="/quizzes/{{$quiz->id}}/questions/create" class="btn btn-success">Add new question</a>
-                    <a href="/takeparts/{{$quiz->id}}-{{Str::slug($quiz->title)}}" class="btn btn-success">Take part in this Quiz</a>
+                    <a href="/takeparts/{{$quiz->id}}-{{Str::slug($quiz->title)}}" class="btn btn-primary @if($quiz->questions->count() == 0) disabled @endif">Take part in this Quiz <span class="badge badge-info">{{$quiz->questions->count()}} question</span></a>
                 </div>
             </div>
-            @foreach($quiz->questions as $question)
+            @forelse($quiz->questions as $question)
             <div class="card mt-2">
                 <div class="card-header">{{$question->question}}</div>
                 <div class="card-body">
@@ -35,7 +35,13 @@
                     </form>
                 </div>
             </div>
-            @endforeach
+            @empty
+                <div class="card mt-2">
+                    <div class="card-body">
+                    No question created for this quiz
+                    </div>
+                </div>
+            @endforelse
 
         </div>
     </div>
