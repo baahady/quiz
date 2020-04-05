@@ -17,6 +17,19 @@
                     <a href="quizzes/create" class="btn btn-success">Create new quiz</a>
                 </div>
             </div>
+            <div class="card mt-2">
+                <div class="card-header">user quiz</div>
+
+                <div class="card-body">
+                    <div class="list-group">
+                        @foreach($quizzes as $quiz)
+                        <div class="list-group-item">
+                            {{$quiz->title}}
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>        
         </div>
     </div>
 </div>
