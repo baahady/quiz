@@ -9,6 +9,9 @@ class TakepartController extends Controller
 {
     public function show(Quiz $quiz,$slug)
     {
+		if($quiz->questions->count()==0){
+			return redirect('/quizzes/'.$quiz->id);
+		}
         $quiz->load('questions.answers');
         return view('takepart.show',compact('quiz'));
     }
