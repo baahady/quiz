@@ -18,15 +18,26 @@
                 </div>
             </div>
             <div class="card mt-2">
-                <div class="card-header">user quiz</div>
+                <div class="card-header">quizzes created with {{$user->name}}</div>
 
                 <div class="card-body">
                     <div class="list-group">
-                        @foreach($quizzes as $quiz)
+                        @forelse($quizzes as $quiz)
                         <div class="list-group-item">
                             {{$quiz->title}}
+                            <div class="mt-2">
+                                <a href="/quizzes/{{$quiz->id}}/questions/create"><button class="btn-sm btn btn-primary float-left mr-2">Add question</button></a> 
+                                <a href="/takeparts/{{$quiz->id}}-{{Str::slug($quiz->title)}}"><button class="btn-sm btn btn-success float-left mr-2">Take part</button></a> 
+                                <form action="/quizzes/{{$quiz->id}}" method="post" class="float-left">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn-sm btn btn-danger">Delete</button>
+                                </form>
+                            </div>
                         </div>
-                        @endforeach
+                        @empty
+                        nothing yet
+                        @endforelse
                     </div>
                 </div>
             </div>        

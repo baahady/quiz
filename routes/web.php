@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/quizzes/create','QuizController@create');
 Route::post('/quizzes','QuizController@store');
 Route::get('/quizzes/{quiz}','QuizController@show');
+Route::delete('/quizzes/{quiz}','QuizController@destroy');
 
 Route::get('/quizzes/{quiz}/questions/create','QuestionController@create');
 Route::post('/quizzes/{quiz}/questions','QuestionController@store');

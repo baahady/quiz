@@ -34,4 +34,10 @@ class QuizController extends Controller
 		$quiz->load('questions.answers.responses');
 		return view('quiz.show',compact('quiz'));
 	}
+
+    public function destroy(Quiz $quiz)
+    {
+        $quiz->delete();
+        return redirect()->route('home');
+    }
 }

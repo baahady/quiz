@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user=auth()->user();
         $quizzes = auth()->user()->quizzes;
-        return view('home')->with('quizzes',$quizzes);
+        return view('home')->with([
+            'quizzes'=>$quizzes,
+            'user'=>$user
+        ]);
     }
 }
