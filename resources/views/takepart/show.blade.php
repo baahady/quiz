@@ -28,34 +28,7 @@
         				</div>
         			</div>
         		@endforeach
-        		<div class="card mt-2">
-        			<div class="card-header">Your Information</div>
-        			<div class="card-body">
-                    <div class="card mt-2">
-                        <div class="card-header">Your Information</div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Your Name</label>
-                                <input type="text" name="takepart[name]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter Name">
-                                <small id="emailHelp" class="form-text text-muted">Enter name here please.</small>
-                                @error('takepart.name')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror                         
-                            </div> 
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Your Email</label>
-                                <input type="text" name="takepart[email]" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Enter Email">
-                                <small id="emailHelp" class="form-text text-muted">Enter email here please.</small>
-                                @error('takepart.email')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror                       
-                            </div>  
-                        </div>
-                    </div>        			
-                </div>
-        		</div>
+
         		<button type="submit" class="btn btn-success mt-3">Save</button>
         	</form>
 

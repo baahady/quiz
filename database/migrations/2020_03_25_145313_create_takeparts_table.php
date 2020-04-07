@@ -16,8 +16,7 @@ class CreateTakepartsTable extends Migration
         Schema::create('takeparts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('quiz_id');
-            $table->string('name');
-            $table->string('email');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

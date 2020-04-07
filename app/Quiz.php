@@ -23,7 +23,7 @@ class Quiz extends Model
     	return $this->hasMany(Question::class);
     }
 
-    public function Takeparts()
+    public function takeparts()
     {
     	return $this->hasMany(Takepart::class);
     }

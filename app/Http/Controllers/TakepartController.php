@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Quiz;
-
+use App\User;
+use App\Takepart;
 class TakepartController extends Controller
 {
     public function show(Quiz $quiz,$slug)
@@ -16,17 +17,19 @@ class TakepartController extends Controller
         return view('takepart.show',compact('quiz'));
     }
 
-    public function store(Quiz $quiz)
+    public function store(Quiz $quiz,User $user)
     {
-    	// dd(request()->all());
     	$data = request()->validate([
     		'responses.*.answer_id' => 'required',
-    		'responses.*.question_id' => 'required',
-    		'takepart.name' => 'required',
-    		'takepart.email' => 'required|email'
+			'responses.*.question_id' => 'required',
     	]);
+		
+		$takepart = Takepart::create([
 
-    	$takepart = $quiz->takeparts()->create($data['takepart']);
+			'user_id' => auth()->user()->id,
+			'quiz_id' => $quiz->id
+		]);
+
     	$takepart->responses()->createMany($data['responses']);
 
     	return redirect($quiz->path());

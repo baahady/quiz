@@ -21,7 +21,7 @@
                             <li class="list-group-item d-flex justify-content-between">
                             <div>{{$answer->answer}}</div>
                             @if($question->responses->count())
-                            <div>{{($answer->responses->count() * 100) / $question->responses->count()}}</div>
+                            <div>{{($answer->responses->count() * 100) / $question->responses->count()}} %</div>
                             @endif
                             </li>
                         @endforeach
