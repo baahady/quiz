@@ -8,7 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -81,25 +82,23 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    آزمون ساز آنلاین
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
                 <div>
-                    @forelse($quizzes as $quiz)
-                        {{$quiz->title}}
-                    @empty
+                @foreach($quizzes as $quiz)
+                <div class="card flaot-right">
+                    <div class="card-header">{{$quiz->title}}</div>
+                    <div class="card-body">
+                    {{$quiz->description}}
+                    </div>
+                    <div class="card-footer">{{$quiz->user->name}}</div>
+                </div>
+                @endforeach    
+                    
 
-                    @endforelse
+                    
+                    
                 </div>
             </div>
         </div>
