@@ -94,6 +94,13 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                <div>
+                    @forelse($quizzes as $quiz)
+                        {{$quiz->title}}
+                    @empty
+
+                    @endforelse
+                </div>
             </div>
         </div>
     </body>

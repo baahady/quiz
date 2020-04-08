@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Quiz;
-use App\User;
 use App\Takepart;
 class TakepartController extends Controller
 {
@@ -17,7 +16,7 @@ class TakepartController extends Controller
         return view('takepart.show',compact('quiz'));
     }
 
-    public function store(Quiz $quiz,User $user)
+    public function store(Quiz $quiz)
     {
     	$data = request()->validate([
     		'responses.*.answer_id' => 'required',
