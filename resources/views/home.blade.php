@@ -27,6 +27,7 @@
                             {{$quiz->title}}
                             <div class="mt-2">
                                 <a href="/quizzes/{{$quiz->id}}/questions/create"><button class="btn-sm btn btn-primary float-left mr-2">Add question</button></a> 
+                                <a href="/quizzes/{{$quiz->id}}"><button class="btn-sm btn btn-warning float-left mr-2">Manage Questions</button></a> 
                                 <a href="/takeparts/{{$quiz->id}}-{{Str::slug($quiz->title)}}"><button class="btn-sm btn btn-success float-left mr-2">Take part</button></a> 
                                 <form action="/quizzes/{{$quiz->id}}" method="post" class="float-left">
                                     @csrf

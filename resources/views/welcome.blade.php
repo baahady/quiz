@@ -94,11 +94,7 @@
                     </div>
                     <div class="card-footer">{{$quiz->user->name}}</div>
                 </div>
-                @endforeach    
-                    
-
-                    
-                    
+                @endforeach           
                 </div>
             </div>
         </div>
