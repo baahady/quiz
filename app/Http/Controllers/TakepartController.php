@@ -7,6 +7,12 @@ use App\Quiz;
 use App\Takepart;
 class TakepartController extends Controller
 {
+
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
     public function show(Quiz $quiz,$slug)
     {
 		if($quiz->questions->count()==0){
@@ -31,6 +37,7 @@ class TakepartController extends Controller
 
     	$takepart->responses()->createMany($data['responses']);
 
-    	return redirect($quiz->path());
+		//return redirect($quiz->path());
+		return redirect()->route('result');
     }
 }

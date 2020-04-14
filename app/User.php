@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasMany(Quiz::class);
     }
 
+    public function takeparts()
+    {
+        return $this->hasMany(Takepart::class);
+    }
+
     public function roles()
     {
         return $this->belongsToMany('App\Role');

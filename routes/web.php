@@ -32,6 +32,8 @@ Route::middleware('can:manage-quiz')->group(function(){
 Route::get('/takeparts/{quiz}-{slug}','TakepartController@show');
 Route::post('/takeparts/{quiz}-{slug}','TakepartController@store');
 
+Route::get('/result','ResultController@index')->name('result');
+
 //Route::resource('/admin/users','Admin\UserController',['except'=>['show','create','store']]);
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
