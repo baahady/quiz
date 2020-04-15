@@ -15,7 +15,8 @@ class ResultController extends Controller
 
     public function index(Quiz $quiz, Takepart $takepart)
     {
-        dd(auth()->user()->takeparts()->with('user')->with('quiz')->get());
-        return view('result.show');
+    	//dd(auth()->user()->takeparts()->with('user')->with('quiz')->get());
+        $results = auth()->user()->takeparts()->with('user')->with('quiz')->get();
+        return view('result.show')->with('results',$results);
     }
 }
