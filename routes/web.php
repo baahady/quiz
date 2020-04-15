@@ -17,6 +17,8 @@ Route::get('/','MainpageController@index');
 
 Auth::routes();
 
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
 Route::middleware('can:manage-quiz')->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/quizzes/create','QuizController@create');

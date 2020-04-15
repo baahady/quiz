@@ -29,7 +29,7 @@
         			</div>
         		@endforeach
 
-        		<button type="submit" class="btn btn-success mt-3">Save</button>
+        		<button type="submit" class="btn btn-success mt-3">ذخیره</button>
         	</form>
 
         </div>

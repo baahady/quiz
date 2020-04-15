@@ -34,7 +34,11 @@
                     @if (Route::has('login'))
                         <div class="top-right links">
                             @auth
-                                <a href="{{ url('/home') }}">پنل کاربری</a>
+                                @can('manage-quiz')
+                                <a href="{{ url('/home') }}">مدیریت آزمون</a>
+                                @else
+                                <a href="{{ url('/dashboard') }}">پنل کاربری</a>
+                                @endcan
                             @else
                                 <a href="{{ route('login') }}"><i class="fas fa-user-lock fa-sm"></i> ورود</a>
 
