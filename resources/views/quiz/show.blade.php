@@ -8,8 +8,8 @@
                 <div class="card-header">{{$quiz->title}}</div>
 
                 <div class="card-body">
-                    <a href="/quizzes/{{$quiz->id}}/questions/create" class="btn btn-success">Add new question</a>
-                    <a href="/takeparts/{{$quiz->id}}-{{Str::slug($quiz->title)}}" class="btn btn-primary @if($quiz->questions->count() == 0) disabled @endif">Take part in this Quiz <span class="badge badge-info">{{$quiz->questions->count()}} question</span></a>
+                    <a href="/quizzes/{{$quiz->id}}/questions/create" class="btn btn-success">اضافه کردن سوال</a>
+                    <a href="/takeparts/{{$quiz->id}}-{{Str::slug($quiz->title)}}" class="btn btn-primary @if($quiz->questions->count() == 0) disabled @endif">شرکت در همین آزمون <span class="badge badge-info">{{$quiz->questions->count()}} سوال</span></a>
                 </div>
             </div>
             @forelse($quiz->questions as $question)
@@ -31,14 +31,14 @@
                     <form action="/quizzes/{{$quiz->id}}/questions/{{$question->id}}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    <button type="submit" class="btn btn-sm btn-outline-danger">حذف</button>
                     </form>
                 </div>
             </div>
             @empty
                 <div class="card mt-2">
                     <div class="card-body">
-                    No question created for this quiz
+                    شما فعلا هیچ سوالی به این آزمون اضافه نکرده اید.
                     </div>
                 </div>
             @endforelse
