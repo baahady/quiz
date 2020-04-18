@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Takepart;
-use App\Quiz;
 
 class ResultController extends Controller
 {
@@ -13,10 +11,9 @@ class ResultController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Quiz $quiz, Takepart $takepart)
-    {        
-    	// dd(auth()->user()->takeparts()->with('user')->with('quiz.questions.answers.responses')->get());
-        $results = auth()->user()->takeparts()->with('user')->with('quiz.questions.answers.responses')->get();
+    public function index()
+    {     
+        $results = auth()->user()->takeparts()->with('quiz.questions.answers.responses.answer')->get();
         return view('result.show')->with('results',$results);
     }
 }
