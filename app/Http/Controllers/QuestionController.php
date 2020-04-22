@@ -17,10 +17,12 @@ class QuestionController extends Controller
     {
     	$data = request()->validate([
             'question.question'=>'required',
+            'correct.correct'=>'required|integer',
             'answers.*.answer'=>'required'
         ]);
         
         $question = $quiz->questions()->create($data['question']);
+        $question->correct()->create($data['correct']);
         $question->answers()->createMany($data['answers']);
         return redirect('quizzes/'.$quiz->id);
     }

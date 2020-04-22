@@ -10,14 +10,29 @@
                 <div class="card-body">
                     <form action="/quizzes/{{$quiz->id}}/questions" method="post">
                         @csrf
-                      <div class="form-group">
-                        <label for="exampleInputQuestion1">سوال</label>
-                        <input type="text" name="question[question]" value="{{old('question.question')}}" class="form-control" id="exampleInputQuestion1"
-                         aria-describedby="questionHelp" placeholder="سوال">
-                        @error('question.question')
-                            <div class="text-danger">{{$message}}</div>
-                        @enderror
-                      </div> 
+                       <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="exampleInputQuestion1">سوال</label>
+                                <input type="text" name="question[question]" value="{{old('question.question')}}" class="form-control" id="exampleInputQuestion1"
+                                aria-describedby="questionHelp" placeholder="سوال">
+                                @error('question.question')
+                                    <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div> 
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">پاسخ صحیح</label>
+                                <select class="form-control" name="correct[correct]" id="exampleFormControlSelect1">
+                                <option value="1">گزینه 1</option>
+                                <option value="2">گزینه 2</option>
+                                <option value="3">گزینه 3</option>
+                                <option value="4">گزینه 4</option>
+                                </select>
+                            </div>
+                        </div>
+                      </div>
 
 
                       <div class="form-group">
