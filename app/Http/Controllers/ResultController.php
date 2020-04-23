@@ -13,7 +13,11 @@ class ResultController extends Controller
 
     public function index()
     {     
-        $results = auth()->user()->takeparts()->with('quiz.questions.answers.responses.answer')->get();
+        $results = auth()->user()->takeparts()
+        ->with('quiz.questions.answers.responses.answer')
+        ->with('quiz.questions.answers.correct.answer')
+        ->get();
+        dd($results);
         return view('result.show')->with('results',$results);
     }
 }

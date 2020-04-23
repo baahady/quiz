@@ -17,6 +17,7 @@ class TakepartResponse extends Model
     {
     	return $this->belongsTo(Answer::class);
     }
+    
     public function question()
     {
     	return $this->belongsTo(Question::class);

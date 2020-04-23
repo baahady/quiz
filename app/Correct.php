@@ -8,8 +8,13 @@ class Correct extends Model
 {
     protected $guarded = [];
 
+    public function answer()
+    {
+        return $this->belongsTo(Answer::class);
+    }
+
     public function question()
     {
-        $this->belongsTo(Question::class);
+        return $this->belongsTo(Question::class);
     }
 }

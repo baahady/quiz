@@ -25,10 +25,10 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">پاسخ صحیح</label>
                                 <select class="form-control" name="correct[correct]" id="exampleFormControlSelect1">
-                                <option value="1">گزینه 1</option>
-                                <option value="2">گزینه 2</option>
-                                <option value="3">گزینه 3</option>
-                                <option value="4">گزینه 4</option>
+                                <option value="0">گزینه 1</option>
+                                <option value="1">گزینه 2</option>
+                                <option value="2">گزینه 3</option>
+                                <option value="3">گزینه 4</option>
                                 </select>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                             <legend>گزینه ها</legend>
 
                             <div class="form-group">
-                                <label for="exampleInputAnswer1">گزینه 1</label>
+                                <label for="exampleInputAnswer1">گزینه 1</label> 
                                 <input type="text" name="answers[][answer]" value="{{old('answers.0.answer')}}" 
                                 class="form-control" id="exampleInputAnswer1"
                                 aria-describedby="answerHelp" placeholder="گزینه 1">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Quiz;
 use \App\Question;
+use \App\Correct;
 
 class QuestionController extends Controller
 {
@@ -15,6 +16,11 @@ class QuestionController extends Controller
 
     public function store(Quiz $quiz)
     {
+        // echo request()->correct['correct'];
+        // foreach(request()->answers as $answer){
+        //    echo $answer['answer'];
+        // }
+
     	$data = request()->validate([
             'question.question'=>'required',
             'correct.correct'=>'required|integer',
@@ -22,8 +28,17 @@ class QuestionController extends Controller
         ]);
         
         $question = $quiz->questions()->create($data['question']);
-        $question->correct()->create($data['correct']);
-        $question->answers()->createMany($data['answers']);
+        for($i=0;$i<=3;$i++)
+        {
+            $answers = $question->answers()->create($data['answers'][$i]);
+            if($i==request()->correct['correct']){
+                Correct::create([
+                    'question_id' => $question->id,
+                    'answer_id' => $answers->id
+                ]);
+            }
+        }
+        
         return redirect('quizzes/'.$quiz->id);
     }
 

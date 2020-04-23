@@ -16,7 +16,7 @@ class CreateCorrectsTable extends Migration
         Schema::create('corrects', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('question_id');
-            $table->integer('correct');
+            $table->unsignedBigInteger('answer_id');
             $table->timestamps();
         });
     }

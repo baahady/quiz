@@ -26,6 +26,7 @@
                         <th scope="col">گزینه 3</th>
                         <th scope="col">گزینه 4</th>
                         <th scope="col">جواب شما</th>
+                        <th scope="col">جواب صحیح</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,12 +38,16 @@
                                 @foreach($question->answers as $answer)
                                     <td>
                                     {{$answer->answer}}
+                                    <?php $ansid = $answer->id; ?>
                                     </td>  
                                 @endforeach          
                                 @foreach($val->responses as $response)
                                     <?php $qid = $response->question_id; ?>
                                     @if($id == $qid) <td>{{$response->answer->answer}}</td> @endif
-                                @endforeach  
+                                @endforeach
+                                @foreach($question->correct->answer as $cc)
+                                   <td>{{$cc}}</td>
+                                @endforeach                             
                                 </tr>          
                             @endforeach
                             </tbody>
