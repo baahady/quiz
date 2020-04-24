@@ -17,7 +17,7 @@ class ResultController extends Controller
         ->with('quiz.questions.answers.responses.answer')
         ->with('quiz.questions.answers.correct.answer')
         ->get();
-        dd($results);
+        
         return view('result.show')->with('results',$results);
     }
 }

@@ -16,38 +16,38 @@
                     <div class="card-header">{{$val->quiz->title}}</div>
                     <div class="card-body">
 
-                    <table class="table table-striped">
+                    <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">سوال</th>
+                        <th scope="col" class="bg-primary">سوال</th>
                         <th scope="col">گزینه 1</th>
                         <th scope="col">گزینه 2</th>
                         <th scope="col">گزینه 3</th>
                         <th scope="col">گزینه 4</th>
-                        <th scope="col">جواب شما</th>
-                        <th scope="col">جواب صحیح</th>
+                        <th scope="col" class="bg-info">جواب شما</th>
+                        <th scope="col" class="bg-success">جواب صحیح</th>
+                        <th scope="col">نتیجه</th>
                         </tr>
                     </thead>
                     <tbody>
                             @foreach($val->quiz->questions as $question)
                                 <tr>
                                 <th scope="row">1</th>
-                                <td>{{$question->question}}</td>
+                                <td class="table-primary">{{$question->question}}</td>
                                 <?php $id = $question->id; ?>
                                 @foreach($question->answers as $answer)
                                     <td>
                                     {{$answer->answer}}
-                                    <?php $ansid = $answer->id; ?>
                                     </td>  
                                 @endforeach          
                                 @foreach($val->responses as $response)
                                     <?php $qid = $response->question_id; ?>
-                                    @if($id == $qid) <td>{{$response->answer->answer}}</td> @endif
+                                    @if($id == $qid) <td class="table-info">{{$response->answer->answer}} <?php $resid = $response->answer->id ?></td> @endif
                                 @endforeach
-                                @foreach($question->correct->answer as $cc)
-                                   <td>{{$cc}}</td>
-                                @endforeach                             
+                               
+                                   <td class="table-success">{{$question->correct->answer->answer}}</td>
+                                   <td>@if($question->correct->answer_id == $resid) <span class="text-success"><i class="far fa-thumbs-up"></i> صحیح </span> @else <span class="text-danger"><i class="far fa-thumbs-down"></i> غلط </span> @endif</td>                          
                                 </tr>          
                             @endforeach
                             </tbody>
