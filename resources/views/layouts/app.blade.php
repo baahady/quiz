@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'آزمون ساز') }}
+                    {{ config('app.name', 'کلاس مجازی') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,11 +43,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('ورود') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-user-lock fa-sm"></i> {{ __('ورود') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('ثبت نام') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-sign-in-alt fa-flip-horizontal fa-sm"></i> {{ __('ثبت نام') }}</a>
                                 </li>
                             @endif
                         @else
@@ -63,10 +63,10 @@
                                         <small>{{ __('خروج') }}</small>
                                     </a>
                                     @can('manage-users')
-                                    <a href="{{route('admin.users.index')}}" class="dropdown-item">User Management</a>
+                                    <a href="{{route('admin.users.index')}}" class="dropdown-item">مدیریت کاربران</a>
                                     @endcan
                                     @can('manage-quiz')
-                                    <a href="{{route('home')}}" class="dropdown-item">Quiz Management</a>
+                                    <a href="{{route('home')}}" class="dropdown-item">مدیریت آزمون</a>
                                     @endcan
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

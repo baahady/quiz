@@ -15,7 +15,7 @@
       <!-- navbar-->
     <nav class="navbar navbar-dark navbar-expand-sm bg-dark">
         <div class="container">
-            <a href="{{ url('/') }}" class="navbar-brand">سیستم آزمون رایگان</a>
+            <a href="{{ url('/') }}" class="navbar-brand">کلاس مجازی</a>
 
             <!-- Toggler/collapsibe Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -40,7 +40,7 @@
                                 <a href="{{ url('/dashboard') }}">پنل کاربری</a>
                                 @endcan
                             @else
-                                <a href="{{ route('login') }}"><i class="fas fa-user-lock fa-sm"></i> ورود</a>
+                                <a href="{{ route('login') }}" class="ml-3"><i class="fas fa-user-lock fa-sm"></i> ورود</a>
 
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}"><i class="fas fa-sign-in-alt fa-flip-horizontal fa-sm"></i> ثبت نام </a>
