@@ -3,11 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-3">
-        @include('partials.menu')
-        </div>        
-        <div class="col-md-9">
-            <h3>آزمون ها</h3>
+      
+        <div class="col-md-12">
+            <h3>نتیجه آزمون</h3>
             <hr>
 
 
@@ -57,7 +55,7 @@
                     <div class="card-footer">{{$val->quiz->description}}</div>
                     </div>
                 @empty
-                    شما فعلا در هیچ آزمونی شرکت نکرده اید.    
+                    نتیجه ای یافت نشد.    
                 @endforelse
 
         </div>

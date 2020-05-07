@@ -29,6 +29,8 @@ Route::middleware('can:manage-quiz')->group(function(){
     Route::get('/quizzes/{quiz}/questions/create','QuestionController@create');
     Route::post('/quizzes/{quiz}/questions','QuestionController@store');
     Route::delete('/quizzes/{quiz}/questions/{question}','QuestionController@destroy');
+    Route::get('/participants/{quiz}','ParticipantController@index');
+    Route::get('/participants/{userId}/{quizId}/{takepartId}','ParticipantController@result');
 });
 
 Route::get('/takeparts/{quiz}-{slug}','TakepartController@show');

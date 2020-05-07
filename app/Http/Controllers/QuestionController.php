@@ -9,6 +9,11 @@ use \App\Correct;
 
 class QuestionController extends Controller
 {
+    public function __cunstruct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function create(Quiz $quiz)
     {
     	return view('question.create',compact('quiz'));
